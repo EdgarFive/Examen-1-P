@@ -1,7 +1,9 @@
 ﻿//Inicio del programa =====================================================================
 
 using System.Net.Http.Headers;
+using System.Reflection.Emit;
 using System.Runtime.InteropServices;
+using System.Runtime.Serialization.Formatters;
 using static System.Runtime.InteropServices.JavaScript.JSType;
 
     for (int ii = 0; ii != -1;)
@@ -79,10 +81,109 @@ using static System.Runtime.InteropServices.JavaScript.JSType;
                 }
                 break;
             case 2:
+                //EJERCICIO 2 ===========================================================
+                try
+                {
+                    Console.Clear();
+                    Console.WriteLine("Debe ingresar dos numeros enteros para poder ejecutar la operación.\nIngrese el pimer número:");
+                    int enum1 = int.Parse(Console.ReadLine());
+                    Console.WriteLine("Ingrese el segundo número:");
+                    int enum2 = int.Parse(Console.ReadLine());
+                    Console.WriteLine("ingrese el operador matematico con el que desea trabajar:\"+ , - , * ,/\"");
+                    string eopera = Console.ReadLine();
+                    double eresul = 0;
+                    if (eopera == "+")
+                    {
+                        eresul = enum1 + enum2;
+                    } else if (eopera == "-")
+                    {
+                        eresul = enum1 - enum2;
+                    } else if (eopera == "*")
+                    {
+                        eresul = enum1 * enum2;
+                    } else if (eopera == "/")
+                    {
+                        eresul = enum1 / enum2;
+                    } else
+                    {
+                        Console.WriteLine("El caracter ingresado no es valido, lo siento.");
+                        Console.ReadKey();
+                    }                            
+                    Console.WriteLine("El resultado de la operación es: " + eresul);
+                    Console.ReadKey();
+                }
+                catch (Exception error)
+                {
+                    Console.WriteLine("Ah ocurrido un error en el ingreso de datos: " + error);
+                    Console.ReadKey();
+                }
                 break;
             case 3:
+                try
+                {
+                    Console.Clear();
+                    Console.WriteLine("Ingrese un número para saber su tabla de multiplicar:");
+                    int eemulti = int.Parse(Console.ReadLine());
+                    int eemultiresul = 0;
+                    for (int jj = 1; jj <= 10; jj++)
+                    {
+                        eemultiresul = eemulti * jj;
+                        Console.WriteLine(eemulti + " * " + jj + " = " + eemultiresul);
+                    }
+                    Console.ReadKey();
+                }
+                catch (Exception error)
+                {
+                    Console.WriteLine("Ah ocurrido un error en el ingreso de datos: " + error);
+                    Console.ReadKey();
+                }        
                 break;
             case 4:
+                try
+                {
+                    Console.Clear();
+                    Random eram = new Random();
+                    int eramd = eram.Next(1,100);
+                    int eenumro = 0;
+                    for (int jj = 0; jj != -1;)
+                    {
+                        try
+                        {
+                            Console.Clear() ;
+                            Console.WriteLine("Ingrese un número entero entre el 1 y el 100:");
+                            eenumro = int.Parse(Console.ReadLine());
+                            if (eenumro > eramd)
+                            {
+                                Console.WriteLine("El número secreto es menor, vuelva a intentarlo.");
+                                Console.ReadKey();
+                            }else if (eenumro < eramd)
+                            {
+                                Console.WriteLine("El número secreto es mayor, vuelva a intentarlo.");
+                                Console.ReadKey();
+                            }else if (eenumro == eramd)
+                            {
+                                Console.WriteLine("¡LO HAS CONSEGUIDO!, el número ingresado es el correcto:" + eramd);
+                                jj = -1;
+                                Console.ReadKey();
+                            }
+                            else
+                            {
+                                Console.WriteLine("El número ingresado no es valido, vuelva a intentarlo.");
+                                Console.ReadKey();
+                            }
+                        }
+                        catch (Exception error)
+                        {
+                            Console.WriteLine("Ah ocurrido un error en el ingreso de datos: " + error);
+                            Console.ReadKey();
+                        }
+                    }
+                }
+                catch (Exception error)
+                {
+                    Console.WriteLine("Ah ocurrido un error en el ingreso de datos: " + error);
+                    Console.ReadKey();
+                }
                 break;
             default:
                 if (emenu1 == -1)
@@ -103,15 +204,4 @@ using static System.Runtime.InteropServices.JavaScript.JSType;
         Console.WriteLine("Ah ocurrido un error en el ingreso de datos: " + error);
         Console.ReadKey();
     }
-} 
-
-/*
-try
-{
-
-} catch (Exception error)
-{
-    Console.WriteLine("Ah ocurrido un error en el ingreso de datos: " + error);
-    Console.ReadKey();
 }
-*/
