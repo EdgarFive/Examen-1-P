@@ -152,10 +152,11 @@ using static System.Runtime.InteropServices.JavaScript.JSType;
                             Console.Clear() ;
                             Console.WriteLine("Ingrese un número entero entre el 1 y el 100:");
                             eenumro = int.Parse(Console.ReadLine());
-                            if (eenumro > eramd)
+                            if (eenumro > 100 || eenumro < 1)
                             {
-                                Console.WriteLine("El número secreto es menor, vuelva a intentarlo.");
+                                Console.WriteLine("El número ingresado no es valido, vuelva a intentarlo.");
                                 Console.ReadKey();
+                               
                             }else if (eenumro < eramd)
                             {
                                 Console.WriteLine("El número secreto es mayor, vuelva a intentarlo.");
@@ -166,9 +167,9 @@ using static System.Runtime.InteropServices.JavaScript.JSType;
                                 jj = -1;
                                 Console.ReadKey();
                             }
-                            else
+                            else if (eenumro > eramd)
                             {
-                                Console.WriteLine("El número ingresado no es valido, vuelva a intentarlo.");
+                                Console.WriteLine("El número secreto es menor, vuelva a intentarlo.");
                                 Console.ReadKey();
                             }
                         }
